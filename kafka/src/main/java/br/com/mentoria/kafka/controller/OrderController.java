@@ -1,5 +1,6 @@
 package br.com.mentoria.kafka.controller;
 
+import br.com.mentoria.kafka.Dto.UsuarioDto;
 import br.com.mentoria.kafka.OrderProducer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,7 +20,7 @@ public class OrderController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public void send(@RequestBody String order) {
-        orderProducer.send(order);
+    public void send(@RequestBody UsuarioDto usuario) {
+        orderProducer.send(usuario.toString());
     }
 }
