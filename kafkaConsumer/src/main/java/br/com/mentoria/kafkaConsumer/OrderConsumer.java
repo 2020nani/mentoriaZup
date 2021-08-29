@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class OrderConsumer {
 
     @KafkaListener(topics = "${order.topic}", groupId = "${spring.kafka.consumer.group-id}")
-    public void consumer(final ConsumerRecord consumerRecord) {
+    public void consumer(ConsumerRecord consumerRecord) {
         log.info("key: " + consumerRecord.key());
         log.info("Headers: " + consumerRecord.headers());
         log.info("Partion: " + consumerRecord.partition());
